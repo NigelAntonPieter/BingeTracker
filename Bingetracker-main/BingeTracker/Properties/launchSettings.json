@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BingeTracker (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "BingeTracker (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

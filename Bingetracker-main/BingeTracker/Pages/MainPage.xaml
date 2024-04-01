@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="BingeTracker.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BingeTracker.Pages"
+    xmlns:localmodel="using:BingeTracker.Model"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        
+
+        <ListView Grid.RowSpan="2"
+                  Grid.Column="0"
+                  Margin="10"
+                  MaxWidth="350"
+                  x:Name="FilmListView"
+                  IsItemClickEnabled="True"
+                  ItemClick="FilmListView_ItemClick"
+                  IsRightTapEnabled="True"
+                  RightTapped="FilmListView_RightTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="localmodel:Streaming">
+                    <StackPanel BorderBrush="White"
+                                BorderThickness="2"
+                                CornerRadius="10"
+                                Orientation="Vertical"
+                                Margin="0 10 0 10"
+                                Padding="10 0 0 0">
+                        <TextBlock Margin="0 10 5 10">
+                            <Run Text=" Title: " FontWeight="Bold"/>
+                            <Run  Text="{x:Bind Title}" />
+                        </TextBlock>
+                        <TextBlock Margin="0 10 0 10">
+                            <Run Text=" Platform:"
+                                 FontWeight="Bold" />
+                            <Run Text="{x:Bind Platform}" />
+                        </TextBlock>
+                        <TextBlock Margin="0 10 0 10">
+                            <Run Text=" ReleaseDate:"
+                                 FontWeight="Bold" />
+                            <Run  Text="{x:Bind ReleaseDate}" />
+                        </TextBlock>
+                        <TextBlock Margin="0 10 0 10">
+                            <Run Text="Genre:"
+                                FontWeight="Bold" />
+                            <Run  Text="{x:Bind Genre}" />           
+                        </TextBlock>
+                        <TextBlock Margin="0 10 0 10">
+                             <Run Text="Stars:"
+                                  FontWeight="Bold" />
+                             <Run  Text="{x:Bind Rating}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+            <Button x:Name="NewStream"
+                    Click="NewStream_Click" Margin="0,0,20,0">New stream</Button>
+            <TextBox TextChanged="searchTextbox_TextChanged"
+                     x:Name="searchTextbox" />
+        </StackPanel>
+    </Grid>
+</Page>

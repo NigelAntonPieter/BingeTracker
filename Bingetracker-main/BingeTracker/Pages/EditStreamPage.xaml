@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="BingeTracker.Pages.EditStreamPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BingeTracker.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+     <Grid>
+     <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="1*" />
+         <ColumnDefinition Width="3*" />
+     </Grid.ColumnDefinitions>
+     <Grid.RowDefinitions>
+         <RowDefinition Height="1*" />
+         <RowDefinition Height="5*" />
+     </Grid.RowDefinitions>
+
+     <StackPanel Grid.Column="0"
+                 Grid.RowSpan="2">
+         <Button Name="goBack"
+                 Click="goBack_Click">Go Back</Button>
+     </StackPanel>
+     <StackPanel Grid.Row="0"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center">
+         <TextBlock Text="Edit Stream"
+                    FontSize="50"
+                    FontWeight="Bold"
+                    FontFamily="arial" />
+     </StackPanel>
+     <StackPanel Grid.Column="1" Grid.Row="1">
+         <TextBlock Text="Title:"
+                    Margin="5" />
+         <TextBox x:Name="TitleTB"
+                  Margin="5" />
+
+         <TextBlock Text="Platform:"
+                    Margin="5" />
+         <TextBox x:Name="PlatformTB"
+                  Margin="5" />
+
+         <TextBlock Text="Genre:"
+                    Margin="5" />
+         <TextBox x:Name="GenreTB"
+                  Margin="5" />
+            <DatePicker x:Name="ReleaseDate"
+                        HorizontalAlignment="Center"
+                        Margin="0,10,0,10" />
+            <TextBlock Text="Stars:"
+                       Margin="5" />
+            <TextBox x:Name="RatingTb"
+                     Margin="5" />
+
+            <Button Name="UpdateStream"
+                    Click="UpdateStream_Click"
+                    Margin="5">Save</Button>
+     </StackPanel>
+    
+     <ContentDialog x:Name="EditDialog"
+                    Title="Onjuiste gegevens"
+                    CloseButtonText="OK">
+         <StackPanel>
+             <TextBlock Text="Vul de juiste gegevens in ." />
+         </StackPanel>
+     </ContentDialog>
+ </Grid>
+</Page>
